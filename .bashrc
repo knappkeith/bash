@@ -10,5 +10,6 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 
-source /Library/Frameworks/Python.framework/Versions/Current/bin/virtualenvwrapper.sh
-source /usr/share/git-core/git-prompt.sh
+#Additional Sources
+source ~/bash/.bash_prompt
+source /usr/local/bin/virtualenvwrapper.sh
