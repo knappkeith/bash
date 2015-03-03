@@ -1,2 +1,4 @@
 source ~/bash/.bashrc
 source ~/bash/.bash_prompt
+export UNRAR_LIB_PATH=/usr/lib/libunrar.so
+
