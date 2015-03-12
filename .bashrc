@@ -9,6 +9,13 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 # Virtual environments
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
+PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
+export PATH
+
+# Adding to Path
+# For Sublime
+PATH=~/bin:$PATH
+export PATH
 
 #Additional Sources
 source ~/bash/.bash_prompt
