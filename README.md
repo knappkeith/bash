@@ -1,8 +1,8 @@
-# H1 BASH Settings
+#  BASH Settings
 
 I am new to this but have found it useful to make these available.  They are pretty tailored to me and my computer, mostly because I dont know yet how to fix it all.  If you have any questions or suggestions please let me know.
 
-# H2 How to Use
+## How to Use
 
 1. Fork this repo
 2. From your home directory, ```git clone <YOUR FORK>```
@@ -10,7 +10,7 @@ I am new to this but have found it useful to make these available.  They are pre
   * ```source /Users/<USER PROFILE>/bash/.bash_start```
 4. Restart your terminal
 
-# H2 What does it do
+## What does it do
 
 * Git, will show your current branch and it's status at the end of the prompt
 * Virtual Environments, will show at the beginning of the prompt
