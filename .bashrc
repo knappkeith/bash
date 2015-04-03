@@ -28,3 +28,9 @@ export DOCKER_TLS_VERIFY=1
 
 #For UnRar
 export UNRAR_LIB_PATH=/usr/lib/libunrar.so
+
+#For Title of Tab/Terminal
+function title {
+    echo -ne "\033]0;"$*"\007"
+}
+
