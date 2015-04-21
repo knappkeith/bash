@@ -34,3 +34,6 @@ function title {
     echo -ne "\033]0;"$*"\007"
 }
 
+#For Charter Git
+alias gitcharter='git fetch && git checkout develop && git pull'
+
