@@ -51,13 +51,5 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export CE_DEV=~/dev/cloud-elements
 export SOBA=~/dev/cloud-elements/soba
 export PATH=$PATH:$CE_DEV
-export CATALINA_OPTS="-Dsoba.system.dir=elements_config -Dsoba.filename=elements.properties -Dfile.encoding=UTF-8 -agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n"
-
-### FUNCTIONS ###
-
-# For Title of Tab/Terminal
-function title {
-    echo -ne "\033]0;"$*"\007"
-}
-
-### ADDITIONAL SOURCES ###
+# export CATALINA_OPTS="-Dsoba.system.dir=inspirato-im-config -Dsoba.filename=integrationmanager.properties -Dfile.encoding=UTF-8"
+# export CATALINA_OPTS="-Dsoba.system.dir=elements_config -Dsoba.filename=elements.properties -Dfile.encoding=UTF-8 -agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n"

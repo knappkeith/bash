@@ -36,6 +36,7 @@ I am new to this but have found it useful to make these available.  They are pre
 UnRAR is a command line tool to extract RAR files and is needed for the ```unrar``` python library
 
 To install:
+
 1. Goto http://www.rarlab.com/download.htm and download the most recent version
 2. Extract tar and go into directory
 3. ```$ sudo install -c -o $USER unrar /usr```

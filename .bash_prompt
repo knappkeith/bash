@@ -94,6 +94,12 @@ function set_virtualenv () {
   else
       PYTHON_VIRTUALENV="${BLUE}[`basename \"$VIRTUAL_ENV\"`]${COLOR_NONE} "
   fi
+
+  if test -z "$PROMPT_VAR" ; then
+      TOMCAT_VIRTUALENV=""
+  else
+      TOMCAT_VIRTUALENV="${BLUE}[`basename \"TomCat-$PROMPT_VAR\"`]${COLOR_NONE} "
+  fi
 }
  
 # Set the full bash prompt.
@@ -113,7 +119,7 @@ function set_bash_prompt () {
   fi
  
   # Set the bash prompt variable.
-  PS1="${PYTHON_VIRTUALENV}${GREEN}\u@\h ${YELLOW}\W${COLOR_NONE} ${BRANCH}${PROMPT_SYMBOL} "
+  PS1="${PYTHON_VIRTUALENV}${TOMCAT_VIRTUALENV}${GREEN}\u@\h ${YELLOW}\W${COLOR_NONE} ${BRANCH}${PROMPT_SYMBOL} "
 }
  
 # Tell bash to execute this function just before displaying its prompt.

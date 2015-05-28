@@ -1,4 +1,10 @@
 ### SOURCES ###
 
+# Main source
 source ~/bash/.bashrc
+
+# Pretty Prompt
 source ~/bash/.bash_prompt
+
+# Functions
+source ~/bash/.bash_functions
