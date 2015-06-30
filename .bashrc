@@ -13,8 +13,11 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 # For Python Virtual Environments
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev
-export PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
+export PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/lib:$PATH
 source /usr/local/bin/virtualenvwrapper.sh
+
+# For Heroku
+export PATH="/usr/local/heroku/bin:$PATH"
 
 # For SUBLIME
 export PATH=~/bin:$PATH
