@@ -16,6 +16,9 @@ export PROJECT_HOME=$HOME/dev
 export PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/lib:$PATH
 source /usr/local/bin/virtualenvwrapper.sh
 
+# For Python TEMP
+export PYTHONPATH=~/dev/cloud-elements/HybridPortal/src/main/test/integration
+
 # For Heroku
 export PATH="/usr/local/heroku/bin:$PATH"
 
@@ -54,5 +57,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export CE_DEV=~/dev/cloud-elements
 export SOBA=~/dev/cloud-elements/soba
 export PATH=$PATH:$CE_DEV
+export PATH=$PATH:~/dev/cloud-elements/inspirato
 # export CATALINA_OPTS="-Dsoba.system.dir=inspirato-im-config -Dsoba.filename=integrationmanager.properties -Dfile.encoding=UTF-8"
 # export CATALINA_OPTS="-Dsoba.system.dir=elements_config -Dsoba.filename=elements.properties -Dfile.encoding=UTF-8 -agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n"
