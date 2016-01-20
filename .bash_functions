@@ -46,6 +46,14 @@ function test_exists {
   fi
 }
 
+function fix_virtualenv_symlink {
+  for d in ~/.virtualenvs/*/ ; do
+    echo "$d"
+    find "$d" -type l -delete
+    virtualenv "$d"
+  done
+}
+
 function workon_soba {
   export CATALINA_BASE='/usr/local/apache-tomcat/apache-tomcat-7.0.62.soba'
   export CATALINA_OPTS="-Dsoba.system.dir=elements_config -Dsoba.filename=elements.properties -Dfile.encoding=UTF-8 -agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n"
