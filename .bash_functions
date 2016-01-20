@@ -54,6 +54,21 @@ function fix_virtualenv_symlink {
   done
 }
 
+function pip_update_all {
+  echo 'Updating PIP'
+  pip install --upgrade pip
+  toupdate=$(pip list --local --outdated | grep -v '^\-e')
+  echo 'Do you wish to update the following:'
+  echo "$toupdate"
+  select yn in "Yes" "No"; do
+    case $yn in
+      Yes ) pip list --local --outdated | grep -v '^\-e' | cut -d ' ' -f 1 | xargs -n1 pip install -U; break;;
+      No ) break;;
+    esac
+  done
+  
+}
+
 function workon_soba {
   export CATALINA_BASE='/usr/local/apache-tomcat/apache-tomcat-7.0.62.soba'
   export CATALINA_OPTS="-Dsoba.system.dir=elements_config -Dsoba.filename=elements.properties -Dfile.encoding=UTF-8 -agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n"
