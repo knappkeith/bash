@@ -24,6 +24,7 @@ function func2 {
    fi
 
 }
+
 function file_exists {
   file_1="$HOME/elements_config/elements.properties.$1"
   # echo $file_1
@@ -129,4 +130,10 @@ function tom_stop_im {
 
 function url_open {
   open $APP_URL
+}
+
+function goto_viawest {
+  cd dev/cloud-elements/HybridPortal/src/main/test/integration/
+  workon pytest_viawest
+  title VIAWEST
 }
