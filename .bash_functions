@@ -1,52 +1,10 @@
-
+# Sets the title of the current tab
 function title {
     echo -ne "\033]0;"$*"\007"
 }
 
-function func2 {
-  DEFAULT=default 
-   if [ -z "$1" ]                           # Is parameter #1 zero length?
-   then
-     echo "-Parameter #1 is zero length.-"  # Or no parameter passed.
-   else
-     echo "-Parameter #1 is \"$1\".-"
-   fi
-
-   variable=${2-$DEFAULT}                   #  What does
-   echo "variable = $variable"              #+ parameter substitution show?
-                                            #  ---------------------------
-                                            #  It distinguishes between
-                                            #+ no param and a null param.
-
-   if [ "$2" ]
-   then
-     echo "-Parameter #2 is \"$2\".-"
-   fi
-
-}
-
-function file_exists {
-  file_1="$HOME/elements_config/elements.properties.$1"
-  # echo $file_1
-  if [ -e "$file_1" ]
-  then
-    echo 1
-  else
-    echo 0
-  fi
-}
-function test_exists {
-  result=$(file_exists $1)
-  echo $1
-  echo $result
-  if [ $result == 1 ]
-  then
-    echo 'is good'
-  else
-    echo 'is bad'
-  fi
-}
-
+# Updates a virtual environments symlinks when there is
+# an update to an installed item, ie Python
 function fix_virtualenv_symlink {
   for d in ~/.virtualenvs/*/ ; do
     echo "$d"
@@ -55,6 +13,7 @@ function fix_virtualenv_symlink {
   done
 }
 
+# Updates all python Packages in a virtual env
 function pip_update_all {
   echo 'Updating PIP'
   pip install --upgrade pip
@@ -70,6 +29,16 @@ function pip_update_all {
   
 }
 
+# Goes to the Viawest Directory, starts up the virtual
+# env and sets the title
+function goto_viawest {
+  cd /Users/keith/dev/cloud-elements/ri-test/
+  workon pytest_viawest
+  title VIAWEST
+}
+
+
+# Funcitions for SOBA and Integration Manager
 function workon_soba {
   export CATALINA_BASE='/usr/local/apache-tomcat/apache-tomcat-7.0.62.soba'
   export CATALINA_OPTS="-Dsoba.system.dir=elements_config -Dsoba.filename=elements.properties -Dfile.encoding=UTF-8 -agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n"
@@ -130,10 +99,4 @@ function tom_stop_im {
 
 function url_open {
   open $APP_URL
-}
-
-function goto_viawest {
-  cd dev/cloud-elements/HybridPortal/src/main/test/integration/
-  workon pytest_viawest
-  title VIAWEST
 }
