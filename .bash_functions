@@ -37,6 +37,18 @@ function goto_viawest {
   title VIAWEST
 }
 
+# clears Viawest Dev cache
+function vw_dev_cache {
+  redis-cli -h 10.33.233.110 flushall
+  redis-cli -h 10.33.233.111 flushall
+}
+
+# clears Viawest staging cache
+function vw_stg_cache {
+  redis-cli -h 10.33.233.51 flushall
+  redis-cli -h 10.33.233.52 flushall
+}
+
 
 # Funcitions for SOBA and Integration Manager
 function workon_soba {
@@ -99,4 +111,12 @@ function tom_stop_im {
 
 function url_open {
   open $APP_URL
+}
+
+function kill_chromedriver {
+  ps aux | grep chromedriver | grep utils | tr -s ' ' | cut -d ' ' -f 2 | while read x; do kill -9 $x; done
+}
+
+function kill_phantomjs {
+  ps aux | grep phantomjs | grep utils | tr -s ' ' | cut -d ' ' -f 2 | while read x; do kill -9 $x; done
 }
