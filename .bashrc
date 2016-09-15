@@ -60,3 +60,8 @@ export PATH=$PATH:$CE_DEV
 export PATH=$PATH:~/dev/cloud-elements/inspirato
 # export CATALINA_OPTS="-Dsoba.system.dir=inspirato-im-config -Dsoba.filename=integrationmanager.properties -Dfile.encoding=UTF-8"
 # export CATALINA_OPTS="-Dsoba.system.dir=elements_config -Dsoba.filename=elements.properties -Dfile.encoding=UTF-8 -agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n"
+
+export GH_TOKEN=7a7e523c15bf0031e6133026ea78bfc0384ba242
+
+#For Node
+export NODE_ENV=dev

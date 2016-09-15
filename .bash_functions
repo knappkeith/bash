@@ -120,3 +120,10 @@ function kill_chromedriver {
 function kill_phantomjs {
   ps aux | grep phantomjs | grep utils | tr -s ' ' | cut -d ' ' -f 2 | while read x; do kill -9 $x; done
 }
+
+function run_speed_tester {
+  cd ~/dev/personal/my_tools/
+  workon myTools
+  title "Network Speed"
+  ./speed_tester.py
+}
