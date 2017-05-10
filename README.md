@@ -6,7 +6,7 @@ I am new to this but have found it useful to make these available.  They are pre
 
 1. Fork this repo
 2. From your home directory, ```git clone <YOUR FORK>```
-3. Add to your ```.bashrc``` or ```.bash_profile```:
+3. Add to your ```~/.bashrc``` or ```~/.bash_profile```:
   * ```source /Users/<USER PROFILE>/bash/.bash_start``` or ```source ~/bash/.bash_start```
 4. Restart your terminal
 
