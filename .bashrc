@@ -12,7 +12,8 @@ alias tomstop='$CATALINA_HOME/bin/shutdown.sh'
 #----------------------------------------------------------------------------------
 # ENVIRONMENT VARIABLES
 #----------------------------------------------------------------------------------
-# Function to add to $PATH
+# Function to add to $PATH, 0 for $2 will add directory at beginning otherwise
+#   it will be put on the end
 function add_to_path {
     local mydir=$1
     local myindex=$2
@@ -77,7 +78,6 @@ export NODE_ENV=dev
 export CE_DEV=~/dev/cloud-elements
 export SOBA=~/dev/cloud-elements/soba
 add_to_path $CE_DEV 1
-add_to_path ~/dev/cloud-elements/inspirato 1
 
 #For Churros
 export CHURROS_USER=devnull@cloud-elements.com
