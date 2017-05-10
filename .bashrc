@@ -1,8 +1,18 @@
-### ALIASES ###
+#----------------------------------------------------------------------------------
+# ALIASES
+#----------------------------------------------------------------------------------
 alias ll='ls -Al'
 alias path='echo -e ${PATH//:/\\n}'
 alias tomstart='$CATALINA_HOME/bin/startup.sh'
 alias tomstop='$CATALINA_HOME/bin/shutdown.sh'
+#----------------------------------------------------------------------------------
+# End ALIASES
+#----------------------------------------------------------------------------------
+
+#----------------------------------------------------------------------------------
+# ENVIRONMENT VARIABLES
+#----------------------------------------------------------------------------------
+### GENERAL ###
 
 # Colors fro ls(ll)
 export CLICOLOR=1
@@ -53,15 +63,21 @@ export UNRAR_LIB_PATH=/usr/lib/libunrar.so
 # For RVM
 export PATH="$PATH:$HOME/.rvm/bin"
 
-# For Cloud Elements
+#For Node
+export NODE_ENV=dev
+
+### CLOUD ELEMENTS ###
+
+# For Cloud Elements General
 export CE_DEV=~/dev/cloud-elements
 export SOBA=~/dev/cloud-elements/soba
 export PATH=$PATH:$CE_DEV
 export PATH=$PATH:~/dev/cloud-elements/inspirato
-# export CATALINA_OPTS="-Dsoba.system.dir=inspirato-im-config -Dsoba.filename=integrationmanager.properties -Dfile.encoding=UTF-8"
-# export CATALINA_OPTS="-Dsoba.system.dir=elements_config -Dsoba.filename=elements.properties -Dfile.encoding=UTF-8 -agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n"
 
-export GH_TOKEN=7a7e523c15bf0031e6133026ea78bfc0384ba242
-
-#For Node
-export NODE_ENV=dev
+#For Churros
+export CHURROS_USER=devnull@cloud-elements.com
+export CHURROS_PASSWORD="Cloud3l3m3nts!"
+export CHURROS_URL=api.cloud-elements.com
+#----------------------------------------------------------------------------------
+# End ENVIRONMENT VARIABLES
+#----------------------------------------------------------------------------------

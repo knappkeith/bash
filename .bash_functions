@@ -1,8 +1,6 @@
-# Sets the title of the current tab
-function title {
-    echo -ne "\033]0;"$*"\007"
-}
-
+#----------------------------------------------------------------------------------
+# Python Specific Funtions
+#----------------------------------------------------------------------------------
 # Updates a virtual environments symlinks when there is
 # an update to an installed item, ie Python
 function fix_virtualenv_symlink {
@@ -26,104 +24,93 @@ function pip_update_all {
       No ) break;;
     esac
   done
-  
+}
+#----------------------------------------------------------------------------------
+# End Python Functions
+#----------------------------------------------------------------------------------
+
+#----------------------------------------------------------------------------------
+# GOTO functions: Navigates to correct Directory, sets up needed environment,
+#   sets title, and any other needed setup
+#----------------------------------------------------------------------------------
+# TOOLS
+function goto_tools {
+  cd /Users/keith/dev/cloud-elements/tools-ce/
+  workon tools
+  title ceTOOLS
 }
 
-# Goes to the Viawest Directory, starts up the virtual
-# env and sets the title
-function goto_viawest {
-  cd /Users/keith/dev/cloud-elements/ri-test/
-  workon pytest_viawest
-  title VIAWEST
+# FORMUALS
+function goto_formulas {
+  cd /Users/keith/dev/cloud-elements/tools-ce/
+  workon tools
+  title ceTOOLS
 }
 
-# clears Viawest Dev cache
-function vw_dev_cache {
-  redis-cli -h 10.33.233.110 flushall
-  redis-cli -h 10.33.233.111 flushall
+# CHURROS
+function goto_churros {
+  cd /Users/keith/dev/cloud-elements/churros/
+  title CHURROS
 }
 
-# clears Viawest staging cache
-function vw_stg_cache {
-  redis-cli -h 10.33.233.51 flushall
-  redis-cli -h 10.33.233.52 flushall
+# DANGO
+function goto_dango {
+  cd /Users/keith/dev/cloud-elements/dango/
+  title DANGO
 }
 
+# CHASE
+function goto_chase {
+  cd ~/dev/personal/acct_parser/
+  subl chase.CSV
+  find ~/Downloads -name "Chase*.CSV" -type f -exec rm {} \;
+}
+#----------------------------------------------------------------------------------
+# End GOTO Functions
+#----------------------------------------------------------------------------------
 
-# Funcitions for SOBA and Integration Manager
-function workon_soba {
-  export CATALINA_BASE='/usr/local/apache-tomcat/apache-tomcat-7.0.62.soba'
-  export CATALINA_OPTS="-Dsoba.system.dir=elements_config -Dsoba.filename=elements.properties -Dfile.encoding=UTF-8 -agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n"
-  export APP_URL='http://localhost:8080/elements/jsp/login.jsp'
-  export PROMPT_VAR="Soba"
+#----------------------------------------------------------------------------------
+# Kill Process Functions, Will kill all processes with a specific name
+#----------------------------------------------------------------------------------
+# General Kill Function
+kill_process () {
+  ps aux | grep $1 | grep utils | tr -s ' ' | cut -d ' ' -f 2 | while read x; do kill -9 $x; done
 }
 
-function tom_start_soba {
-  export CATALINA_BASE='/usr/local/apache-tomcat/apache-tomcat-7.0.62.soba'
-  export CATALINA_OPTS="-Dsoba.system.dir=elements_config -Dsoba.filename=elements.properties -Dfile.encoding=UTF-8 -agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n"
-  export APP_URL='http://localhost:8080/elements/jsp/login.jsp'
-  export PROMPT_VAR="Soba"
-  tomstart
-}
-
-function workon_im {
-  export CATALINA_BASE='/usr/local/apache-tomcat/apache-tomcat-7.0.62.im'
-  export CATALINA_OPTS="-Dsoba.system.dir=inspirato-im-config -Dsoba.filename=integrationmanager.properties -Dfile.encoding=UTF-8"
-  export APP_URL='http://localhost:8081/integrationmanager/jsp/login.jsp'
-  export PROMPT_VAR="Inspirato"
-}
-
-function tom_start_im {
-  export CATALINA_BASE='/usr/local/apache-tomcat/apache-tomcat-7.0.62.im'
-  export CATALINA_OPTS="-Dsoba.system.dir=inspirato-im-config -Dsoba.filename=integrationmanager.properties -Dfile.encoding=UTF-8"
-  export APP_URL='http://localhost:8081/integrationmanager/jsp/login.jsp'
-  export PROMPT_VAR="Inspirato"
-  tomstart
-}
-
-function deactivate_soba {
-  export CATALINA_BASE=""
-  export CATALINA_OPTS=""
-  export APP_URL=""
-  export PROMPT_VAR=""
-}
-
-function deactivate_im {
-  export CATALINA_BASE=""
-  export CATALINA_OPTS=""
-  export APP_URL=""
-  export PROMPT_VAR=""
-}
-
-function tom_stop_soba {
-  export CATALINA_BASE='/usr/local/apache-tomcat/apache-tomcat-7.0.62.soba'
-  export CATALINA_OPTS="-Dsoba.system.dir=elements_config -Dsoba.filename=elements.properties -Dfile.encoding=UTF-8 -agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n"
-  export APP_URL='http://localhost:8080/elements/jsp/login.jsp'
-  tomstop
-}
-
-function tom_stop_im {
-  export CATALINA_BASE='/usr/local/apache-tomcat/apache-tomcat-7.0.62.im'
-  export CATALINA_OPTS="-Dsoba.system.dir=inspirato-im-config -Dsoba.filename=integrationmanager.properties -Dfile.encoding=UTF-8"
-  export APP_URL='http://localhost:8081/integrationmanager/jsp/login.jsp'
-  tomstop
-}
-
-function url_open {
-  open $APP_URL
-}
-
+# CHROMEDRIVER
 function kill_chromedriver {
-  ps aux | grep chromedriver | grep utils | tr -s ' ' | cut -d ' ' -f 2 | while read x; do kill -9 $x; done
+  kill_process chromedriver
 }
 
+# PHANTOMJS
 function kill_phantomjs {
-  ps aux | grep phantomjs | grep utils | tr -s ' ' | cut -d ' ' -f 2 | while read x; do kill -9 $x; done
+  kill_process phantomjs
+}
+#----------------------------------------------------------------------------------
+# End Kill Functions
+#----------------------------------------------------------------------------------
+
+#----------------------------------------------------------------------------------
+# MISC Functions
+#----------------------------------------------------------------------------------
+# Sets the title of the current tab
+function title {
+    echo -ne "\033]0;"$*"\007"
 }
 
+# Returns the date in "{MONTH} {DAY}" Format
+function today {
+  local myDate=$(date | tr -s ' ' | cut -d ' ' -f 2,3)
+  echo "$myDate"
+}
+
+# Run Speed Tester
 function run_speed_tester {
   cd ~/dev/personal/my_tools/
   workon myTools
   title "Network Speed"
   ./speed_tester.py
 }
+#----------------------------------------------------------------------------------
+# End MISC Functions
+#----------------------------------------------------------------------------------

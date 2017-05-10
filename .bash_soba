@@ -1,0 +1,87 @@
+#----------------------------------------------------------------------------------
+# Funcitions for SOBA and Integration Manager
+#----------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------
+# SOBA
+#----------------------------------------------------------------------------------
+# Sets all environment variables
+function setup_soba {
+  export CATALINA_BASE='/usr/local/apache-tomcat/apache-tomcat-7.0.62.soba'
+  export CATALINA_OPTS="-Dsoba.system.dir=elements_config -Dsoba.filename=elements.properties -Dfile.encoding=UTF-8 -agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n"
+  export APP_URL='http://localhost:8080/elements/jsp/login.jsp'
+}
+function workon_soba {
+  setup_soba
+  export PROMPT_VAR="Soba"
+}
+
+# Sets up and starts soba
+function tom_start_soba {
+  workon_soba
+  tomstart
+}
+
+# deactivate soba
+function deactivate_soba {
+  export CATALINA_BASE=""
+  export CATALINA_OPTS=""
+  export APP_URL=""
+  export PROMPT_VAR=""
+}
+
+# Stop Soba
+function tom_stop_soba {
+  setup_soba
+  tomstop
+}
+#----------------------------------------------------------------------------------
+# End SOBA
+#----------------------------------------------------------------------------------
+
+#----------------------------------------------------------------------------------
+# Integration Manager (IM)
+#----------------------------------------------------------------------------------
+# Sets all environment variables
+function setup_im {
+  export CATALINA_BASE='/usr/local/apache-tomcat/apache-tomcat-7.0.62.im'
+  export CATALINA_OPTS="-Dsoba.system.dir=inspirato-im-config -Dsoba.filename=integrationmanager.properties -Dfile.encoding=UTF-8"
+  export APP_URL='http://localhost:8081/integrationmanager/jsp/login.jsp'
+}
+function workon_im {
+  setup_im
+  export PROMPT_VAR="Inspirato"
+}
+
+# Sets up and starts im
+function tom_start_im {
+  workon_im
+  tomstart
+}
+
+# deactivate im
+function deactivate_im {
+  export CATALINA_BASE=""
+  export CATALINA_OPTS=""
+  export APP_URL=""
+  export PROMPT_VAR=""
+}
+
+# Stop Soba
+function tom_stop_im {
+  setup_im
+  tomstop
+}
+#----------------------------------------------------------------------------------
+# End Integration Manager (IM)
+#----------------------------------------------------------------------------------
+
+#----------------------------------------------------------------------------------
+# MISC Functions
+#----------------------------------------------------------------------------------
+# Will open APP_URL
+function url_open {
+  open $APP_URL
+}
+#----------------------------------------------------------------------------------
+# End MISC Functions
+#----------------------------------------------------------------------------------

@@ -31,6 +31,10 @@ I am new to this but have found it useful to make these available.  They are pre
 
 ## More Info
 
+### .bash_private
+
+Because there are some things that you don't want to store on a publicly available Repo you can set things in here and this scipt will get run first.
+
 ### UnRAR
 
 UnRAR is a command line tool to extract RAR files and is needed for the ```unrar``` python library

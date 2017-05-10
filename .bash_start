@@ -1,10 +1,41 @@
-### SOURCES ###
+#----------------------------------------------------------------------------------
+# Sources to Include
+#----------------------------------------------------------------------------------
+# Function to load file only if it exists
+function load_source {
+    local FILE=$1
+    if [ -f $FILE ]; then
+        source $FILE
+    else
+        echo "WARNING: Source File, '$FILE', not Found, Continuing without loading!"
+    fi
+}
+
+# Load Private first incase there are important variables in there
+load_source ~/bash/.bash_private
+load_source ~/bash/.bash_private
 
 # Main source
-source ~/bash/.bashrc
+load_source ~/bash/.bashrc
 
 # Pretty Prompt
-source ~/bash/.bash_prompt
+load_source ~/bash/.bash_prompt
 
 # Functions
-source ~/bash/.bash_functions
+load_source ~/bash/.bash_functions
+load_source ~/bash/.bash_soba
+#----------------------------------------------------------------------------------
+# End Sources
+#----------------------------------------------------------------------------------
+
+#----------------------------------------------------------------------------------
+# Finish up
+#----------------------------------------------------------------------------------
+# Set the Title of this tab to the date
+title $(today)
+
+# Unset the functions used in this script
+unset -f load_source
+#----------------------------------------------------------------------------------
+# End Finish up
+#----------------------------------------------------------------------------------
