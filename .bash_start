@@ -13,7 +13,6 @@ function load_source {
 
 # Load Private first incase there are important variables in there
 load_source ~/bash/.bash_private
-load_source ~/bash/.bash_private
 
 # Main source
 load_source ~/bash/.bashrc
