@@ -42,9 +42,9 @@ function goto_tools {
 
 # FORMUALS
 function goto_formulas {
-  cd /Users/keith/dev/cloud-elements/tools-ce/
+  cd /Users/keith/dev/cloud-elements/workflows/
   workon tools
-  title ceTOOLS
+  title FORMULAS
 }
 
 # CHURROS
