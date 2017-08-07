@@ -111,6 +111,12 @@ function run_speed_tester {
   title "Network Speed"
   ./speed_tester.py
 }
+
+# Clear out the CE Request Bin
+function clear_request_bin {
+  curl -X DELETE 'https://knappkeith.pythonanywhere.com/request/?clearQueue' -H 'cache-control: no-cache' -H 'content-type: application/json'
+  echo ""
+}
 #----------------------------------------------------------------------------------
 # End MISC Functions
 #----------------------------------------------------------------------------------
