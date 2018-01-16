@@ -84,7 +84,7 @@ export CE_DEV=~/dev/cloud-elements
 export SOBA=~/dev/cloud-elements/soba
 add_to_path $CE_DEV 1
 
-#For Churros
+#For Churros, default
 export CHURROS_USER=devnull@cloud-elements.com
 export CHURROS_PASSWORD="Cloud3l3m3nts!"
 export CHURROS_URL=api.cloud-elements.com

@@ -42,7 +42,7 @@ function goto_tools {
 
 # FORMUALS
 function goto_formulas {
-  cd /Users/keith/dev/cloud-elements/workflows/
+  cd /Users/keith/dev/cloud-elements/formulas/
   workon tools
   title FORMULAS
 }
@@ -51,6 +51,46 @@ function goto_formulas {
 function goto_churros {
   cd /Users/keith/dev/cloud-elements/churros/
   title CHURROS
+}
+
+function change_churros_qa {
+  export CHURROS_USER=claude.elements.qa+churros@gmail.com
+  export CHURROS_PASSWORD="Cl0ud3l3m3nts!"
+  export CHURROS_URL=staging.cloud-elements.com
+  echo $CHURROS_USER
+  echo $CHURROS_PASSWORD
+  echo $CHURROS_URL
+  churros init --template ~/dev/cloud-elements/churros-sauce/sauce.json
+}
+
+function change_churros_qa_snapshot {
+  export CHURROS_USER=claude.elements.qa+general@gmail.com
+  export CHURROS_PASSWORD="Cl0ud3l3m3nts!"
+  export CHURROS_URL=snapshot.cloud-elements.com
+  echo $CHURROS_USER
+  echo $CHURROS_PASSWORD
+  echo $CHURROS_URL
+  churros init --template ~/dev/cloud-elements/churros-sauce/sauce.json
+}
+
+function change_churros_qa_prod {
+  export CHURROS_USER=claude.elements.qa+polling@gmail.com
+  export CHURROS_PASSWORD="Cl0ud3l3m3nts!"
+  export CHURROS_URL=api.cloud-elements.com
+  echo $CHURROS_USER
+  echo $CHURROS_PASSWORD
+  echo $CHURROS_URL
+  churros init --template ~/dev/cloud-elements/churros-sauce/sauce.json
+}
+
+function change_churros_nightly {
+  export CHURROS_USER=churros@churros.com
+  export CHURROS_PASSWORD="elements1"
+  export CHURROS_URL=snapshot.cloud-elements.com
+  echo $CHURROS_USER
+  echo $CHURROS_PASSWORD
+  echo $CHURROS_URL
+  churros init --template ~/dev/cloud-elements/churros-sauce/sauce.json
 }
 
 # DANGO
