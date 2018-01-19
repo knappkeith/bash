@@ -36,6 +36,9 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 ### PROGRAM SPECIFIC ###
 
+#For Python, default to homebrew version
+add_to_path /usr/local/opt/python/libexec/bin 0
+
 # For Python Virtual Environments
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev
@@ -73,9 +76,9 @@ export UNRAR_LIB_PATH=/usr/lib/libunrar.so
 export NODE_ENV=dev
 
 # For Ruby and OpenSSL
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export PATH="/usr/local/opt/gettext/bin:$PATH"
-export PATH="/usr/local/Cellar/ruby/2.4.1_1/bin:$PATH"
+add_to_path /usr/local/opt/openssl@1.1/bin 1
+add_to_path /usr/local/opt/gettext/bin 1
+add_to_path /usr/local/Cellar/ruby/2.4.1_1/bin 1
 
 ### CLOUD ELEMENTS ###
 
