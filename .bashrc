@@ -36,8 +36,8 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 ### PROGRAM SPECIFIC ###
 
-#For Python, default to homebrew version
-add_to_path /usr/local/opt/python/libexec/bin 0
+# For Python, default to homebrew version
+# add_to_path /usr/local/opt/python/libexec/bin 0
 
 # For Python Virtual Environments
 export WORKON_HOME=$HOME/.virtualenvs
