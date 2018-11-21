@@ -66,7 +66,7 @@ function goto_pychurros {
 
 function goto_qaauto {
   cd /Users/keith/dev/cloud-elements/qaAutomation/
-  workon test3
+  workon test37
   title "Churros+"
   subl -b .
   subl -a ../churros-sauce/
@@ -75,10 +75,20 @@ function goto_qaauto {
 function goto_mstr {
   cd /Users/keith/dev/cloud-elements/qaAutomation/
   workon test3
-  title "Churros+"
+  title "Churros+MSTR"
   subl -b .
   subl -a ../churros-sauce/
+  subl -a ../mstr_config/
   change_churros_mstr
+}
+
+function goto_circleci {
+  cd /Users/keith/dev/cloud-elements/qaAutomation/
+  workon test3
+  title "CircleCI"
+  subl -b .
+  subl -a ../churros-sauce/
+  change_churros_circleci
 }
 
 # CHURROS
@@ -108,6 +118,19 @@ function change_churros_mstr {
   echo '   rally username: '$MSTR_RALLY_USERNAME
   echo '        rally url: '$MSTR_RALLY_URL
   echo '    rally api key: '$MSTR_RALLY_API_KEY
+  echo ''
+  echo 'INIT CHURROS:'
+  churros init --template ~/dev/cloud-elements/churros-sauce/sauce.json
+}
+
+function change_churros_circleci {
+  export CHURROS_USER=claude.elements.qa+circleci@gmail.com
+  export CHURROS_PASSWORD="Cl0ud3l3m3nts!"
+  export CHURROS_URL=snapshot.cloud-elements.com
+  echo 'SET VARIABLES:'
+  echo '         username: '$CHURROS_USER
+  echo '         password: '$CHURROS_PASSWORD
+  echo '              url: '$CHURROS_URL
   echo ''
   echo 'INIT CHURROS:'
   churros init --template ~/dev/cloud-elements/churros-sauce/sauce.json
@@ -244,4 +267,45 @@ function clear_request_bin {
 }
 #----------------------------------------------------------------------------------
 # End MISC Functions
+#----------------------------------------------------------------------------------
+
+#----------------------------------------------------------------------------------
+# Vendor Specific Funtions
+#----------------------------------------------------------------------------------
+function start_mstr_env() {
+  myID=$1
+  if [ -z $myID ]
+  then
+    echo "You must pass an Environment Number"
+    return
+  fi
+  RED="\033[0;31m"
+  GREEN="\033[0;32m"
+  COLOR_NONE="\033[0m"
+
+  myStatus=$(curl -I https://env-${myID}.customer.cloud.microstrategy.com/MicroStrategy/servlet/mstrWeb 2>/dev/null | head -n 1 | cut -d$' ' -f2)
+  if [ "$myStatus" -ne "503" ]
+  then
+    echo "Environment is up and running! (${myStatus})"
+    return
+  else
+    echo "Environment is not running, trying to start now"
+  fi
+
+
+  bash ~/bash/.mstr ${myID}
+  echo ""
+  echo "Checking Environment status of ${myID}. "
+  myStatus=$(curl -I https://env-${myID}.customer.cloud.microstrategy.com/MicroStrategy/servlet/mstrWeb 2>/dev/null | head -n 1 | cut -d$' ' -f2)
+  if [ "$myStatus" -eq "503" ]
+  then
+    state="${RED}"
+  else
+    state="${GREEN}"
+  fi
+  printf "  Status : ${state}${myStatus}${COLOR_NONE}"
+  echo ""
+}
+#----------------------------------------------------------------------------------
+# END Vendor Specific Funtions
 #----------------------------------------------------------------------------------

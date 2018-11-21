@@ -1,0 +1,30 @@
+function jsonValue() {
+KEY=$1
+num=$2
+awk -F"[,:}]" '{for(i=1;i<=NF;i++){if($i~/'$KEY'\042/){print $(i+1)}}}' | tr -d '"' | sed -n ${num}p
+}
+ 
+envID=$1
+echo "Environment ID is: $envID"
+ 
+# Start the environment first
+startResponse=$(curl -s -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'x-api-key: FKjyY1w29q8rfo0jDz4Pv4unlbUiC9Ap4zsxBiHh' -d "[${envID}]" 'https://developer.customer.cloud.microstrategy.com/api/environments/start' | jsonValue environmentState)
+echo "Env status is:"
+echo "  ${startResponse}"
+# check status of the environment
+while :
+do
+  echo "https://developer.customer.cloud.microstrategy.com/api/environments/${envID}"
+  stateResponse=$(curl -s -X GET --header 'Accept: application/json' --header 'x-api-key: FKjyY1w29q8rfo0jDz4Pv4unlbUiC9Ap4zsxBiHh' "https://developer.customer.cloud.microstrategy.com/api/environments/${envID}" | jsonValue environmentState)
+  echo "Env status is:"
+  echo "  ${stateResponse}"
+if [ "$stateResponse" != "Starting" ] || [ "$stateResponse" = "Running" ]
+then
+  echo "The env status is: "
+  echo "  ${stateResponse}"
+  exit
+else
+  echo "Please wait..."
+  sleep 10
+fi
+done

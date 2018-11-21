@@ -45,40 +45,49 @@ export PROJECT_HOME=$HOME/dev
 source /usr/local/bin/virtualenvwrapper.sh
 
 # For Heroku
-add_to_path /usr/local/heroku/bin 1
+# Commenting out as not being used for now
+# add_to_path /usr/local/heroku/bin 1
 
 # For JAVA
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home
+# Commenting out as not being used for now
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home
 
 # For MAVEN
-add_to_path /usr/local/apache-maven/apache-maven-3.3.3/bin 1
-export MAVEN_OPTS="-Xms256m -Xmx512m"
+# Commenting out as not being used for now
+# add_to_path /usr/local/apache-maven/apache-maven-3.3.3/bin 1
+# export MAVEN_OPTS="-Xms256m -Xmx512m"
 
 # For TOMCAT
-add_to_path /usr/local/apache-tomcat/apache-tomcat-7.0.62/bin 1
-export CATALINA_HOME=/usr/local/apache-tomcat/apache-tomcat-7.0.62
+# Commenting out as not being used for now
+# add_to_path /usr/local/apache-tomcat/apache-tomcat-7.0.62/bin 1
+# export CATALINA_HOME=/usr/local/apache-tomcat/apache-tomcat-7.0.62
 
 # For KAFKA
-add_to_path /usr/local/ce-kafka/kafka_2.10.1-0.8.1/bin 1
+# Commenting out as not being used for now
+# add_to_path /usr/local/ce-kafka/kafka_2.10.1-0.8.1/bin 1
 
 # For NGROK
-add_to_path /usr/local/ngrok 1
+# Commenting out as not being used for now
+# add_to_path /usr/local/ngrok 1
 
 # For Docker
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/keith/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
+# Commenting out as not being used for now
+# export DOCKER_HOST=tcp://192.168.59.103:2376
+# export DOCKER_CERT_PATH=/Users/keith/.boot2docker/certs/boot2docker-vm
+# export DOCKER_TLS_VERIFY=1
 
 #For UnRar
-export UNRAR_LIB_PATH=/usr/lib/libunrar.so
+# Commenting out as not being used for now
+# export UNRAR_LIB_PATH=/usr/lib/libunrar.so
 
 #For Node
 export NODE_ENV=dev
 
 # For Ruby and OpenSSL
-add_to_path /usr/local/opt/openssl@1.1/bin 1
-add_to_path /usr/local/opt/gettext/bin 1
-add_to_path /usr/local/Cellar/ruby/2.4.1_1/bin 1
+# Commenting out as not being used for now
+# add_to_path /usr/local/opt/openssl@1.1/bin 1
+# add_to_path /usr/local/opt/gettext/bin 1
+# add_to_path /usr/local/Cellar/ruby/2.4.1_1/bin 1
 
 ### CLOUD ELEMENTS ###
 
