@@ -25,6 +25,11 @@ function pip_update_all {
     esac
   done
 }
+
+# Remove all *.pyc and __pycache__
+pyclean () {
+    find . -type f -name '*.py[co]' -delete -o -type d -name __pycache__ -delete
+}
 #----------------------------------------------------------------------------------
 # End Python Functions
 #----------------------------------------------------------------------------------
