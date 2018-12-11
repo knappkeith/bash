@@ -30,6 +30,9 @@ function add_to_path {
 
 ### GENERAL ###
 
+# Add my bin to path
+add_to_path $HOME/bin/ 1
+
 # Colors fro ls(ll)
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
