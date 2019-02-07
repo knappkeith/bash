@@ -1,10 +1,11 @@
+#!/bin/bash
 #----------------------------------------------------------------------------------
 # ALIASES
 #----------------------------------------------------------------------------------
 alias ll='ls -Al'
 alias path='echo -e ${PATH//:/\\n}'
-alias tomstart='$CATALINA_HOME/bin/startup.sh'
-alias tomstop='$CATALINA_HOME/bin/shutdown.sh'
+# alias tomstart='$CATALINA_HOME/bin/startup.sh'
+# alias tomstop='$CATALINA_HOME/bin/shutdown.sh'
 #----------------------------------------------------------------------------------
 # End ALIASES
 #----------------------------------------------------------------------------------
@@ -17,7 +18,7 @@ alias tomstop='$CATALINA_HOME/bin/shutdown.sh'
 function add_to_path {
     local mydir=$1
     local myindex=$2
-    if [ -d $mydir ]; then
+    if [ -d "$mydir" ]; then
         if [[ $myindex =~ 0 ]]; then
             export PATH=$mydir:$PATH
         else
@@ -40,12 +41,18 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 ### PROGRAM SPECIFIC ###
 
 # For Python, default to homebrew version
-# add_to_path /usr/local/opt/python/libexec/bin 0
+add_to_path /usr/local/opt/python/libexec/bin 0
 
 # For Python Virtual Environments
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev
 source /usr/local/bin/virtualenvwrapper.sh
+
+# For VSCode
+add_to_path "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" 0
+
+# For Sphnix Docs
+add_to_path /usr/local/opt/sphinx-doc/bin 0
 
 # For Heroku
 # Commenting out as not being used for now
@@ -76,33 +83,26 @@ source /usr/local/bin/virtualenvwrapper.sh
 # For Docker
 # Commenting out as not being used for now
 # export DOCKER_HOST=tcp://192.168.59.103:2376
-# export DOCKER_CERT_PATH=/Users/keith/.boot2docker/certs/boot2docker-vm
+# export DOCKER_CERT_PATH=$HOME/.boot2docker/certs/boot2docker-vm
 # export DOCKER_TLS_VERIFY=1
 
 #For UnRar
 # Commenting out as not being used for now
 # export UNRAR_LIB_PATH=/usr/lib/libunrar.so
 
-#For Node
+# For Node
 export NODE_ENV=dev
+
+# For NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # For Ruby and OpenSSL
 # Commenting out as not being used for now
 # add_to_path /usr/local/opt/openssl@1.1/bin 1
 # add_to_path /usr/local/opt/gettext/bin 1
 # add_to_path /usr/local/Cellar/ruby/2.4.1_1/bin 1
-
-### CLOUD ELEMENTS ###
-
-# For Cloud Elements General
-export CE_DEV=~/dev/cloud-elements
-export SOBA=~/dev/cloud-elements/soba
-add_to_path $CE_DEV 1
-
-#For Churros, default
-export CHURROS_USER=devnull@cloud-elements.com
-export CHURROS_PASSWORD="Cloud3l3m3nts!"
-export CHURROS_URL=api.cloud-elements.com
 #----------------------------------------------------------------------------------
 # End ENVIRONMENT VARIABLES
 #----------------------------------------------------------------------------------
