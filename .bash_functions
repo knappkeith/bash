@@ -41,9 +41,16 @@ pyclean () {
 #----------------------------------------------------------------------------------
 # CHASE
 function goto_chase {
-  cd ~/dev/personal/acct_parser/
-  subl chase.CSV
+  cd ~/dev/personal/chase/
+  subl .
   find ~/Downloads -name "Chase*.CSV" -type f -exec rm {} \;
+}
+function goto_2fa {
+  cd ~/dev/personal/two-factor-auth-automation
+  workon 2factor
+  subl .
+  title "2FA"
+  export CREDS_PATH='~/2fa_creds.json'
 }
 #----------------------------------------------------------------------------------
 # End GOTO Functions

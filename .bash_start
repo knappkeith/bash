@@ -23,6 +23,9 @@ load_source ~/bash/.bash_prompt
 
 # Functions
 load_source ~/bash/.bash_functions
+
+# Tillster
+load_source ~/bash/.tillster
 #----------------------------------------------------------------------------------
 # End Sources
 #----------------------------------------------------------------------------------

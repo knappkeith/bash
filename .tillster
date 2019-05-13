@@ -1,0 +1,50 @@
+#!/bin/bash
+# Variables
+export TLSTR_HOME=~/dev/slalom/tillster
+
+# Goto functions
+function goto_tce_menu {
+  cd $TLSTR_HOME/tce-menu
+  workon aws
+  code .
+  title TCE_MENU
+}
+
+function goto_tce_order {
+  cd $TLSTR_HOME/tce-order
+  workon aws
+  code .
+  title TCE_ORDER
+}
+
+function goto_tce_parse {
+  cd $TLSTR_HOME/tce-menu-mapping-poc
+  workon tceParse
+  code .
+  title TCE_DATA
+}
+
+function goto_tce_journey {
+  cd $TLSTR_HOME/tce-journey-tests
+  code .
+  title TCE_MENU
+}
+
+function tlstr_menu_local {
+  cd $TLSTR_HOME/tce-menu
+  workon aws
+  title "Menu Service"
+  npm run build:watch & npm run start && fg
+}
+
+function tlstr_set_mfa {
+  workon aws
+  python ~/bash/getMfaCode.py $TLSTR_MFA_SECRET | aws-mfa --profile tce-main
+  deactivate aws
+}
+
+function tlstr_print_mfa_code {
+  workon aws
+  python ~/bash/getMfaCode.py $TLSTR_MFA_SECRET
+  deactivate aws
+}
