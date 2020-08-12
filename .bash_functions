@@ -43,6 +43,9 @@ pyclean () {
 function goto_chase {
   cd ~/dev/personal/chase/
   subl .
+  clear_chase
+}
+function clear_chase {
   find ~/Downloads -name "Chase*.CSV" -type f -exec rm {} \;
 }
 function goto_2fa {
