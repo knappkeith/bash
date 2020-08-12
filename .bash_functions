@@ -55,6 +55,12 @@ function goto_2fa {
   title "2FA"
   export CREDS_PATH='~/2fa_creds.json'
 }
+function goto_torrent_and_run {
+    cd /Users/keith/dev/dev/personal/torrent_mngr
+    workon torrent
+    export UNRAR_LIB_PATH="./unrar/libunrar.so"
+    python My_Torrent_Helper.py
+}
 #----------------------------------------------------------------------------------
 # End GOTO Functions
 #----------------------------------------------------------------------------------

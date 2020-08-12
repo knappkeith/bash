@@ -52,7 +52,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 add_to_path "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" 0
 
 # For Sphnix Docs
-add_to_path /usr/local/opt/sphinx-doc/bin 0
+# add_to_path /usr/local/opt/sphinx-doc/bin 0
 
 # For Heroku
 # Commenting out as not being used for now
