@@ -12,6 +12,9 @@ function load_source {
     fi
 }
 
+# Silence the BASH Warning
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # Load Private first incase there are important variables in there
 load_source ~/bash/.bash_private
 
