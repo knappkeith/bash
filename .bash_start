@@ -29,6 +29,9 @@ load_source ~/bash/.bash_functions
 
 # Tillster
 load_source ~/bash/.tillster
+
+# Nike
+load_source ~/bash/.nike
 #----------------------------------------------------------------------------------
 # End Sources
 #----------------------------------------------------------------------------------

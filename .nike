@@ -1,0 +1,6 @@
+#!/bin/bash
+function nike_print_mfa_code {
+  workon aws
+  python ~/bash/getMfaCode.py $NIKE_MFA_TOKEN
+  deactivate aws
+}
